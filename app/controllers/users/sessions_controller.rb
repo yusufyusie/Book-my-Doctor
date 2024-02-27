@@ -35,10 +35,12 @@ class Users::SessionsController < Devise::SessionsController
 
   
   def respond_with(user, _opts = {})
+  jwt_token = generate_jwt_token(user)
+   puts "jwt:#{jwt_token}"
     render json: {
       status: { 
         code: 200, message: 'Logged in successfully.',
-        data: { user: UserSerializer.new(user).serializable_hash[:data][:attributes] }
+        data: { user: UserSerializer.new(user).serializable_hash[:data][:attributes], jwt: jwt_token}
       }
     }, status: :ok
   end
@@ -64,5 +66,10 @@ class Users::SessionsController < Devise::SessionsController
     end
   end
 
+  private
+
+  def generate_jwt_token(user)
+    JWT.encode({ sub: user.id, exp: 30.minutes.to_i }, Rails.application.credentials.devise_jwt_secret_key)
+  end
   
 end
