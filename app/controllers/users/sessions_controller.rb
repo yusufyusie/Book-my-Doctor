@@ -3,7 +3,7 @@
 class Users::SessionsController < Devise::SessionsController
   include RackSessionsFix
   respond_to :json
-    # before_action :configure_sign_in_params, only: [:create]
+     before_action :configure_sign_in_params, only: [:create]
 
   # GET /resource/sign_in
    def new
@@ -71,5 +71,6 @@ class Users::SessionsController < Devise::SessionsController
   def generate_jwt_token(user)
     JWT.encode({ sub: user.id, exp: 30.minutes.to_i }, Rails.application.credentials.devise_jwt_secret_key)
   end
+  
   
 end
