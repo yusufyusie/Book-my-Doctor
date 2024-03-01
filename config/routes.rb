@@ -5,6 +5,9 @@ Rails.application.routes.draw do
   # root "articles#index"
   post '/login', to: 'sessions#create'
  post '/signup', to: 'registrations#create'
- delete '/logout', to: 'sessions#destroy'
+ 
+ namespace :api do
+  resources :doctors, only: [:index, :show, :create, :update, :destroy]
+end
 
 end
