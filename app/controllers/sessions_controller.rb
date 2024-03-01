@@ -15,11 +15,5 @@ class SessionsController < ApplicationController
  end
  end
 
- def destroy
-  # Clear the JWT token from the client's browser storage
-  # Assuming the JWT token is stored in local storage
-  # You can adjust this based on how you store the token in your application
-  cookies.delete(:jwt_token)
-  render json: { message: 'Logout successful' }, status: :ok
-end
+
  end
