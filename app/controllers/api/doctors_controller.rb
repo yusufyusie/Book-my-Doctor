@@ -1,5 +1,6 @@
 class Api::DoctorsController < ApplicationController
-  before_action :authorize_request, only: %i[index show create destroy]
+     before_action :authenticate_token!, only: %i[index show create destroy]
+    skip_before_action :authenticate_token!, only: %i[index show create destroy]
 
   def index
     @doctors = Doctor.all
@@ -18,6 +19,7 @@ class Api::DoctorsController < ApplicationController
     else
       render json: { error: 'No doctors found' }, status: :not_found
     end
+    # render json: { data: @doctors, message: 'All doctors loaded'}
   end
 
   def show
@@ -39,10 +41,11 @@ class Api::DoctorsController < ApplicationController
   def create
     @doctor = Doctor.new(doctor_params)
     if @doctor.save
-      render json: @doctor, status: :created
+      render json: { data: @doctor, message: 'doctor created successfully' }, status: :created
     else
       render json: @doctor.errors, status: :unprocessable_entity
     end
+    
   end
 
   def destroy

@@ -7,7 +7,7 @@ Rails.application.routes.draw do
  post '/signup', to: 'registrations#create'
  
  namespace :api do
-  resources :doctors, only: [:index, :show, :create, :update, :destroy]
+  resources :doctors, only: [:index, :show, :create, :destroy]
 end
 
 end
