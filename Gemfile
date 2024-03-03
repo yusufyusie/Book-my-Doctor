@@ -45,6 +45,7 @@ gem 'rubocop', '>= 1.0', '< 2.0'
 # Add Swagger for API documentation
 gem 'rswag-api'
 gem 'rswag-ui'
+gem 'rswag-specs', require: 'rswag/specs/railtie'
 
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
