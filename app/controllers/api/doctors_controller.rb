@@ -1,6 +1,5 @@
 class Api::DoctorsController < ApplicationController
      before_action :authenticate_token!, only: %i[index show create destroy]
-    skip_before_action :authenticate_token!, only: %i[index show create destroy]
 
   def index
     @doctors = Doctor.all
