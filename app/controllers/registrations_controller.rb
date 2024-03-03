@@ -18,7 +18,7 @@ class RegistrationsController < ApplicationController
  User.exists?(email: email)
  end
  def sign_up_params
-  params.require(:user).permit(:name, :email, :password_digest)
- # params.require(:user).permit(:name, :email, :password, :password_confirmation) 
+  # params.require(:user).permit(:name, :email, :password_digest)
+  params.require(:user).permit(:name, :email, :password, :password_confirmation) 
 end
  end
