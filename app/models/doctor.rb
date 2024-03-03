@@ -7,4 +7,3 @@ class Doctor < ApplicationRecord
   validates :cost, presence: true
   validates :image_url, presence: true
 end
-
