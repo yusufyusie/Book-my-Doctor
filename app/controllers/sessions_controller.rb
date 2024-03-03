@@ -6,7 +6,7 @@ class SessionsController < ApplicationController
   user_serializer = UserSerializer.new(user)
   render json: {
   user: user_serializer,
-  token: JsonWebToken.encode({ sub: user.id })
+  token: JsonWebToken.encode({ id: user.id })
   }, status: :ok
  else
   render json: {
