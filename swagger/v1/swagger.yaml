@@ -194,6 +194,24 @@ paths:
               $ref: '#/definitions/Appointment'
           404:
             description: Appointment not found
+      delete:
+        tags:
+          - Appointment
+        summary: Delete an appointment
+        description: Deletes an appointment by ID.
+        security:
+          - Bearer: []
+        parameters:
+          - in: path
+            name: id
+            description: The ID of the appointment to delete.
+            required: true
+            type: integer
+        responses:
+          200:
+            description: Appointment deleted successfully
+          422:
+            description: Failed to delete appointment
 definitions:
   User:
     type: object
