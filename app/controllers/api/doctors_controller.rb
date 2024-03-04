@@ -23,19 +23,23 @@ class Api::DoctorsController < ApplicationController
 
   def show
     @doctor = Doctor.find_by(id: params[:id])
-
+  
     if @doctor
+      appointments_count = @doctor.appointments.count
+      
       render json: {
         id: @doctor.id,
         name: @doctor.name,
         specialization: @doctor.specialization,
         cost: @doctor.cost,
-        image_url: @doctor.image_url
+        image_url: @doctor.image_url,
+        appointments_count: appointments_count
       }, status: :ok
     else
       render json: { error: 'Doctor not found' }, status: :not_found
     end
   end
+  
 
   def create
     @doctor = Doctor.new(doctor_params)
