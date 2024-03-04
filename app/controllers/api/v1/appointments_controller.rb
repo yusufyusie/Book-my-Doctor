@@ -6,12 +6,16 @@ module Api
       # GET /appointments
       def index
         @appointments = Appointment.where(user_id: @current_user.id).order(created_at: :desc)
-        render json: @appointments
+        render json: { appointments: @appointments }
       end
 
       # GET /appointments/:id
       def show
-        render json: @appointment
+        if @appointment.user_id == @current_user.id
+          render json: { appointment: @appointment }, status: :ok
+        else
+          render json: { errors: @appointment.errors.full_messages }
+        end
       end
 
       # POST /appointments
@@ -20,24 +24,28 @@ module Api
         @appointment.user_id = @current_user.id
 
         if @appointment.save
-          render json: @appointment, status: :created
+          render json: { appointment: @appointment, success: 'Appointment has been created.' }, status: :created
         else
-          render json: @appointment.errors, status: :unprocessable_entity
+          render json: { errors: @appointment.errors.full_messages }, status: :bad_request
         end
       end
 
       # PATCH/PUT /appointments/:id
       def update
         if @appointment.update(appointment_params)
-          render json: @appointment
+          render json: { appointment: @appointment, success: 'Appointment has been updated.' }
         else
-          render json: @appointment.errors, status: :unprocessable_entity
+          render json: { errors: @appointment.errors.full_messages }, status: :bad_request
         end
       end
 
       # DELETE /appointments/:id
       def destroy
-        @appointment.destroy
+        if @appointment.destroy
+          render json: { success: 'Appointment has been deleted.' }
+        else
+          render json: { errors: @appointment.errors.full_messages }, status: :bad_request
+        end
       end
 
       private
