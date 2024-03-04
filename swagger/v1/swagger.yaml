@@ -135,6 +135,23 @@ paths:
           description: Doctor deleted successfully
         422:
           description: Failed to delete doctor
+  "/api/v1/appointments":
+    get:
+      tags:
+        - Appointment
+      summary: Get all appointments
+      description: Returns a list of all appointments.
+      security:
+        - Bearer: []
+      responses:
+        200:
+          description: All appointments loaded
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/Appointment'
+        404:
+          description: No appointments found
 definitions:
   User:
     type: object
@@ -175,6 +192,19 @@ definitions:
       cost:
         type: number
       image_url:
+        type: string
+  Appointment:
+    type: object
+    properties:
+      id:
+        type: integer
+      doctor_id:
+        type: integer
+      patient_id:
+        type: integer
+      appointment_date:
+        type: string
+      appointment_time:
         type: string
 securityDefinitions:
   Bearer:
