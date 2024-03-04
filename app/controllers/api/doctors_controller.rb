@@ -52,7 +52,7 @@ class Api::DoctorsController < ApplicationController
 
   def destroy
     @doctor = Doctor.find_by(id: params[:id])
-    if @doctor&.destroy
+    if @doctor.destroy
       render json: { message: 'Doctor deleted successfully' }, status: :ok
     else
       render json: { error: 'Failed to delete doctor' }, status: :unprocessable_entity
