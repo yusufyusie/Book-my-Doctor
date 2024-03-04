@@ -18,7 +18,6 @@ class Api::DoctorsController < ApplicationController
     else
       render json: { error: 'No doctors found' }, status: :not_found
     end
-    
   end
 
   def show
