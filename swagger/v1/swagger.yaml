@@ -88,6 +88,25 @@ paths:
             $ref: '#/definitions/Doctor'
         422:
           description: Failed to create doctor
+  "/api/v1/doctors/{id}":
+    get:
+      summary: Get a doctor
+      description: Returns a specific doctor by ID.
+      security:
+        - Bearer: []
+      parameters:
+        - in: path
+          name: id
+          description: The ID of the doctor to get.
+          required: true
+          type: integer
+      responses:
+        200:
+          description: Doctor loaded
+          schema:
+            $ref: '#/definitions/Doctor'
+        404:
+          description: Doctor not found
     delete:
       summary: Delete a doctor
       description: Deletes a doctor by ID.
