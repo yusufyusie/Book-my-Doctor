@@ -152,6 +152,48 @@ paths:
               $ref: '#/definitions/Appointment'
         404:
           description: No appointments found
+    post:
+      tags:
+        - Appointment
+      summary: Create a new appointment
+      description: Creates a new appointment.
+      security:
+        - Bearer: []
+      parameters:
+        - in: body
+          name: appointment
+          description: The appointment's details.
+          required: true
+          schema:
+            $ref: '#/definitions/Appointment'
+      responses:
+        201:
+          description: Appointment created successfully
+          schema:
+            $ref: '#/definitions/Appointment'
+        422:
+          description: Failed to create appointment
+  "/api/v1/appointments/{id}":
+      get:
+        tags:
+          - Appointment
+        summary: Get a specific appointment
+        description: Returns a specific appointment by ID.
+        security:
+          - Bearer: []
+        parameters:
+          - in: path
+            name: id
+            description: The ID of the appointment to get.
+            required: true
+            type: integer
+        responses:
+          200:
+            description: Appointment loaded
+            schema:
+              $ref: '#/definitions/Appointment'
+          404:
+            description: Appointment not found
 definitions:
   User:
     type: object
