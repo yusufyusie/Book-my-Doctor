@@ -20,6 +20,8 @@ produces:
 paths:
   "/api/v1/login":
     post:
+      tags:
+        - User
       summary: User login
       description: Logs in a user and returns a token.
       parameters:
@@ -38,6 +40,8 @@ paths:
           description: Incorrect email or password
   "/api/v1/signup":
     post:
+      tags:
+        - User
       summary: User registration
       description: Registers a new user.
       parameters:
@@ -56,6 +60,8 @@ paths:
           description: Email already exists or failed to create user
   "/api/v1/doctors":
     get:
+      tags:
+        - Doctor
       summary: Get all doctors
       description: Returns a list of all doctors.
       security:
@@ -70,6 +76,8 @@ paths:
         404:
           description: No doctors found
     post:
+      tags:
+        - Doctor
       summary: Create a new doctor
       description: Creates a new doctor.
       security:
@@ -90,6 +98,8 @@ paths:
           description: Failed to create doctor
   "/api/v1/doctors/{id}":
     get:
+      tags:
+        - Doctor
       summary: Get a doctor
       description: Returns a specific doctor by ID.
       security:
@@ -108,6 +118,8 @@ paths:
         404:
           description: Doctor not found
     delete:
+      tags:
+        - Doctor
       summary: Delete a doctor
       description: Deletes a doctor by ID.
       security:
