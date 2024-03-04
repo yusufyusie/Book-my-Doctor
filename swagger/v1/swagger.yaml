@@ -1,12 +1,153 @@
-openapi: 3.0.1
+swagger: '2.0'
 info:
-  title: Sample API
-  version: 1.0.0
-
+  title: Doctors API
+  description: >-
+    This API allows users to register, login, and perform CRUD operations on doctors.
+    To use the authorized endpoints:
+      1. Register a new user via the /signup endpoint.
+      2. Log in with the user you registered via the /login endpoint.
+      3. Copy the token string in the response body.
+      4. Use this token in the Authorization header for the other endpoints.
+  version: v1
+host: localhost:3001
+basePath: /
+schemes:
+  - http
+consumes:
+  - application/json
+produces:
+  - application/json
 paths:
-  /users:
-    get:
-      summary: Get a list of users
+  "/api/v1/login":
+    post:
+      summary: User login
+      description: Logs in a user and returns a token.
+      parameters:
+        - in: body
+          name: user
+          description: The user's login details.
+          required: true
+          schema:
+            $ref: '#/definitions/UserLogin'
       responses:
-        '200':
-          description: Successful response
+        200:
+          description: Successful login
+          schema:
+            $ref: '#/definitions/User'
+        401:
+          description: Incorrect email or password
+  "/api/v1/signup":
+    post:
+      summary: User registration
+      description: Registers a new user.
+      parameters:
+        - in: body
+          name: user
+          description: The user's registration details.
+          required: true
+          schema:
+            $ref: '#/definitions/UserRegistration'
+      responses:
+        200:
+          description: Successful registration
+          schema:
+            $ref: '#/definitions/User'
+        422:
+          description: Email already exists or failed to create user
+  "/api/v1/doctors":
+    get:
+      summary: Get all doctors
+      description: Returns a list of all doctors.
+      security:
+        - Bearer: []
+      responses:
+        200:
+          description: All doctors loaded
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/Doctor'
+        404:
+          description: No doctors found
+    post:
+      summary: Create a new doctor
+      description: Creates a new doctor.
+      security:
+        - Bearer: []
+      parameters:
+        - in: body
+          name: doctor
+          description: The doctor's details.
+          required: true
+          schema:
+            $ref: '#/definitions/Doctor'
+      responses:
+        201:
+          description: Doctor created successfully
+          schema:
+            $ref: '#/definitions/Doctor'
+        422:
+          description: Failed to create doctor
+    delete:
+      summary: Delete a doctor
+      description: Deletes a doctor by ID.
+      security:
+        - Bearer: []
+      parameters:
+        - in: path
+          name: id
+          description: The ID of the doctor to delete.
+          required: true
+          type: integer
+      responses:
+        200:
+          description: Doctor deleted successfully
+        422:
+          description: Failed to delete doctor
+definitions:
+  User:
+    type: object
+    properties:
+      id:
+        type: integer
+      name:
+        type: string
+      email:
+        type: string
+  UserLogin:
+    type: object
+    properties:
+      email:
+        type: string
+      password:
+        type: string
+  UserRegistration:
+    type: object
+    properties:
+      name:
+        type: string
+      email:
+        type: string
+      password:
+        type: string
+      password_confirmation:
+        type: string
+  Doctor:
+    type: object
+    properties:
+      id:
+        type: integer
+      name:
+        type: string
+      specialization:
+        type: string
+      cost:
+        type: number
+      image_url:
+        type: string
+securityDefinitions:
+  Bearer:
+    type: apiKey
+    name: Authorization
+    in: header
+    description: Please enter into field the word 'Bearer' following by space and JWT

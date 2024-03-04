@@ -1,15 +1,21 @@
 Rails.application.routes.draw do
   mount Rswag::Ui::Engine => '/api-docs'
   mount Rswag::Api::Engine => '/api-docs'
-  # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
-  # Defines the root path route ("/")
-  # root "articles#index"
-  post '/login', to: 'sessions#create'
- post '/signup', to: 'registrations#create'
- 
- namespace :api do
-  resources :doctors, only: [:index, :show, :create, :destroy]
-end
+  namespace :api do
+    namespace :v1 do
+      post '/login', to: 'sessions#create'
+      post '/signup', to: 'registrations#create'
+      resources :doctors, only: [:index, :create, :show, :destroy]
+      resources :test, only: [:index]
+      resources :workspaces, only: [:index, :show, :create, :destroy]
+      resources :reservations, only: [:index, :create] do
+        collection do
+          get ':id', action: :show
+        end
+      end
+    end
+  end
 
+  get "up" => "rails/health#show", as: :rails_health_check
 end

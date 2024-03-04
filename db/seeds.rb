@@ -5,4 +5,25 @@
 #
 #   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
 #   Character.create(name: "Luke", movie: movies.first)
-  
+  # db/seeds.rb
+
+Doctor.create([
+  {
+    name: 'Dr. Smith',
+    specialization: 'Cardiology',
+    cost: 500,
+    image_url: 'https://example.com/images/drsmith.jpg'
+  },
+  {
+    name: 'Dr. Johnson',
+    specialization: 'Neurology',
+    cost: 600,
+    image_url: 'https://example.com/images/drjohnson.jpg'
+  },
+  {
+    name: 'Dr. Lee',
+    specialization: 'Orthopedics',
+    cost: 400,
+    image_url: 'https://example.com/images/drlee.jpg'
+  }
+])
