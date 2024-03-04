@@ -1,0 +1,15 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  doctor: one
+  user: one
+  date: 2024-03-04
+  time: 2024-03-04 04:03:21
+  reason: MyText
+
+two:
+  doctor: two
+  user: two
+  date: 2024-03-04
+  time: 2024-03-04 04:03:21
+  reason: MyText
