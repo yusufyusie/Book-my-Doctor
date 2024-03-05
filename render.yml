@@ -1,21 +1,21 @@
 databases:
-  - name: https://book-my-doctor-2jsx.onrender.com
+  - name: my-doctors_api
     databaseName: my-doctors_api
     user: medicare_api_development_user
     plan: free
 
     services:
   - type: web
-    name:  https://book-my-doctor-2jsx.onrender.com
+    name:  my-doctors_api
     runtime: ruby
     plan: free
     buildCommand: "./bin/render-build.sh"
     # preDeployCommand: "bundle exec rails db:migrate" # preDeployCommand only available on paid instance types
-    startCommand: "bundle exec rails server"
+    startCommand: "bundle exec puma -C config/puma.rb"
     envVars:
       - key: DATABASE_URL
         fromDatabase:
-          name: mysite
+          name: my-doctors_api
           property: connectionString
       - key: RAILS_MASTER_KEY
         sync: false
