@@ -1,6 +1,29 @@
 class Api::AppointmentsController < ApplicationController
   before_action :authenticate_token!, only: %i[index show create destroy]
 
+  def index
+    appointments = @current_user.appointments.includes(:doctor)
+    if appointments.empty?
+      render json: { error: 'No appointments found' }, status: :not_found
+    else
+      appointments_details = appointments.map do |appointment|
+        {
+          id: appointment.id,
+          doctor: {
+            name: appointment.doctor.name,
+            specialization: appointment.doctor.specialization,
+            cost: appointment.doctor.cost,
+            image_url: appointment.doctor.image_url
+          },
+          user_id: appointment.user_id,
+          date_of_appointment: appointment.date_of_appointment,
+          imageUrl: appointment.doctor.image_url
+        }
+      end
+      render json: { data: appointments_details, message: 'Appointments loaded successfully' }, status: :ok
+    end
+  end
+
   def show
   end
 
