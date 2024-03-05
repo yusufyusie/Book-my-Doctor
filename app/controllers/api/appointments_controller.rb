@@ -8,16 +8,17 @@ class Api::AppointmentsController < ApplicationController
     else
       appointments_details = appointments.map do |appointment|
         {
-          id: appointment.id,
           doctor: {
+            image_url: appointment.doctor.image_url,
             name: appointment.doctor.name,
             specialization: appointment.doctor.specialization,
             cost: appointment.doctor.cost,
-            image_url: appointment.doctor.image_url
           },
-          user_id: appointment.user_id,
-          date_of_appointment: appointment.date_of_appointment,
-          imageUrl: appointment.doctor.image_url
+          user: {
+          name:appointment.user.name,
+          date_of_appointment: appointment.date_of_appointment
+        },
+         
         }
       end
       render json: { data: appointments_details, message: 'Appointments loaded successfully' }, status: :ok
@@ -26,20 +27,6 @@ class Api::AppointmentsController < ApplicationController
 
   def show
   end
-
-  # def create
-  #   appointment = Appointment.new(appointment_params)
-  
-  #   if appointment.save
-  #     response = {
-  #       doctor_id: appointment.doctor_id,
-  #       date_of_appointment: appointment.date_of_appointment.strftime('%A, %d %B %Y')
-  #     }
-  #     render json: { data: response, message: 'Appointment created' }, status: :created
-  #   else
-  #     render json: { error: 'Validation failed', errors: appointment.errors.full_messages }, status: :unprocessable_entity
-  #   end
-  # end
 
 
   def create
