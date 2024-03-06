@@ -4,5 +4,4 @@ class Appointment < ApplicationRecord
 
   # Validations
   validates :date_of_appointment, presence: true
-  validates :status, presence: true, inclusion: { in: ['confirmed', 'canceled'] }
 end
