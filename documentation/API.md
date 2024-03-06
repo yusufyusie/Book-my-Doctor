@@ -132,3 +132,22 @@
 - **Parameters**:
   - `doctor_id` (integer): The unique identifier of the doctor.
   - `date_of_appointment` (string): The date of the appointment (format: "YYYY-MM-DD").
+  
+  - **Response**:
+  - Status Code:
+    - `201 Created` if the appointment is successfully created.
+    - `422 Unprocessable Entity` if there are validation errors.
+  - Body: JSON object containing the details of the newly created appointment with the following fields:
+    - `id` (integer): The unique identifier of the appointment.
+    - `doctor_id` (integer): The unique identifier of the doctor.
+    - `date_of_appointment` (string): The date of the appointment.
+### Delete an Appointment
+- **Endpoint**: `DELETE /api/appointments/:id`
+- **Description**: Deletes a specific appointment.
+- **Authentication Required**: Yes
+- **Parameters**:
+  - `id` (integer): The unique identifier of the appointment to be deleted.
+- **Response**:
+  - Status Code:
+    - `200 OK` if the appointment is successfully deleted.
+    - `404 Not Found` if the appointment is not found.
