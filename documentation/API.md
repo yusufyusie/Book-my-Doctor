@@ -160,4 +160,4 @@
 - **Response**:
   - Status Code:
     - `200 OK` if the appointment is successfully deleted.
-    - `404 Not Found` if the appointment is not found.
+    - `404 Not Found` if the appointment is not foun
