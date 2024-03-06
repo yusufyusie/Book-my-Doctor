@@ -73,6 +73,7 @@
     - `user` (object): Information about the user associated with the appointment.
       - `name` (string): The name of the user.
       - `date_of_appointment` (string): The date of the appointment.
+
   - Example Response:
     ```json
     {
