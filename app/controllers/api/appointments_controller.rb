@@ -18,7 +18,7 @@ class Api::AppointmentsController < ApplicationController
           name:appointment.user.name,
           date_of_appointment: appointment.date_of_appointment
         },
-         
+
         }
       end
       render json: { data: appointments_details, message: 'Appointments loaded successfully' }, status: :ok
@@ -31,11 +31,6 @@ class Api::AppointmentsController < ApplicationController
 
   def create
     appointment = current_user.appointments.build(appointment_params)
-
-    if appointment.status == "canceled"
-      render json: { error: "Appointment creation canceled" }, status: :unprocessable_entity
-      return
-    end
 
     if appointment.save
       response = {
@@ -63,6 +58,6 @@ class Api::AppointmentsController < ApplicationController
 
   private
   def appointment_params
-    params.require(:appointment).permit(:user_id, :doctor_id, :date_of_appointment, :status)
-  end 
+    params.require(:appointment).permit(:user_id, :doctor_id, :date_of_appointment)
+  end
 end
