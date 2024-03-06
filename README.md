@@ -58,10 +58,7 @@ Book my doctor’s backend is a robust Rails application utilizing PostgreSQL da
   <ul>
     <li><a href="https://github.com/ged/ruby-pg">Ruby Pg</a></li>
   </ul>
-<!-- 
-  <ul>
-    <li><a href="https://github.com/rswag/rswag">Rswag</a></li>
-  </ul> -->
+
 
 <!-- Features -->
 
@@ -82,7 +79,7 @@ Book my doctor’s backend is a robust Rails application utilizing PostgreSQL da
 
 > Live Demo of this application:
 
-- [not yet ready]()
+- [Not yet ready]()
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -102,7 +99,7 @@ Clone this repository to your desired folder:
 
 ```sh
   cd my-folder
-  git clone https://github.com/rubydevi/jetlogix-backend.git
+  git clone https://github.com/hydaline-code/Book-my-Doctor.git
 ```
 
 ### Install
@@ -157,17 +154,6 @@ To run tests, run the following command:
   rspec spec/model/
 ```
 
-<!-- ### Deployment
-
-You can deploy this project using: -->
-
-<!--
-Example:
-
-```sh
-
-```
- -->
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -187,10 +173,16 @@ Example:
 - GitHub: [@hydaline](https://github.com/hydaline-dev)
 - LinkedIn: [@hydaline](https://www.linkedin.com/in/hydaline-djougang-0851aa21a/)
 
-👤
+👤 Fombi Favour
 
+-GitHub: Fombi-Favour
+-LinkedIn: Fombi Favour
 
-👤
+👤 Yesuf Fenta
+
+-GitHub: @yusufyusie
+-LinkedIn: in/yusufyusie
+-Twitter: @yusufyusiee
 
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
