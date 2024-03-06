@@ -55,3 +55,54 @@
       - `cost` (decimal): The cost of the doctor's services.
       - `image_url` (string): The URL of the doctor's image.
 
+## Appointments Resource
+### Retrieve All User Appointments
+- **Endpoint**: `GET /api/appointments`
+- **Description**: Retrieves information about all appointments associated with the authenticated user.
+- **Authentication Required**: Yes
+- **Response**:
+  - Status Code:
+    - `200 OK` if appointments are found.
+    - `404 Not Found` if no appointments are found.
+  - Body: JSON object containing an array of appointment objects with the following fields:
+    - `doctor` (object): Information about the doctor associated with the appointment.
+      - `image_url` (string): The URL of the doctor's image.
+      - `name` (string): The name of the doctor.
+      - `specialization` (string): The specialization of the doctor.
+      - `cost` (decimal): The cost of the doctor's services.
+    - `user` (object): Information about the user associated with the appointment.
+      - `name` (string): The name of the user.
+      - `date_of_appointment` (string): The date of the appointment.
+
+  - Example Response:
+    ```json
+    {
+      "data": [
+        {
+          "doctor": {
+            "image_url": "https://example.com/doctor1.jpg",
+            "name": "Dr. John Doe",
+            "specialization": "General Physician",
+            "cost": 100.0
+          },
+          "user": {
+            "name": "John Smith",
+            "date_of_appointment": "Tuesday, 15 March 2022"
+          }
+        },
+        {
+          "doctor": {
+            "image_url": "https://example.com/doctor2.jpg",
+            "name": "Dr. Jane Smith",
+            "specialization": "Dermatologist",
+            "cost": 120.0
+          },
+          "user": {
+            "name": "Alice Johnson",
+            "date_of_appointment": "Friday, 18 March 2022"
+          }
+        }
+      ],
+      "message": "Appointments loaded successfully"
+    }
+    ```
