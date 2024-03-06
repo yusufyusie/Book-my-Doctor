@@ -161,6 +161,9 @@ To run tests, run the following command:
 
 - [Kanban board](https://github.com/users/hydaline-code/projects/5/views/1)
 
+- [Kanban board before]
+![Alt text](<WhatsApp Image 2024-03-06 at 15.26.07_41c7c907.jpg>)
+
 - We are a team of 3 members as indicated in the authors section
 <!-- CONTRIBUTING -->
 
