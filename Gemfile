@@ -41,9 +41,6 @@ gem 'rack-cors'
 
 gem 'bcrypt', '~> 3.1.7'
 gem 'rubocop', '>= 1.0', '< 2.0'
-gem 'rswag'
-
-
 
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
