@@ -187,7 +187,11 @@ Example:
 - GitHub: [@hydaline](https://github.com/hydaline-dev)
 - LinkedIn: [@hydaline](https://www.linkedin.com/in/hydaline-djougang-0851aa21a/)
 
-👤
+👤 **Yesuf Fenta**
+
+- GitHub: [@yusufyusie](https://github.com/yusufyusie)
+- LinkedIn: [in/yusufyusie](https://www.linkedin.com/in/yusufyusie)
+- Twitter: [@yusufyusiee](https://twitter.com/yusufyusiee)
 
 
 👤
