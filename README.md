@@ -164,6 +164,10 @@ To run tests, run the following command:
 - [Kanban board before]
 ![Alt text](<WhatsApp Image 2024-03-06 at 15.26.07_41c7c907.jpg>)
 
+-[kanban board After]
+![Alt text](![image](https://github.com/hydaline-code/Book-my-Doctor/assets/107451859/b777782c-e12d-4569-b67d-2ff0df946774)
+
+
 - We are a team of 3 members as indicated in the authors section
 <!-- CONTRIBUTING -->
 
