@@ -180,16 +180,17 @@ To run tests, run the following command:
 - GitHub: [@hydaline](https://github.com/hydaline-dev)
 - LinkedIn: [@hydaline](https://www.linkedin.com/in/hydaline-djougang-0851aa21a/)
 
+
 👤 Fombi Favour
 
--GitHub: Fombi-Favour
--LinkedIn: Fombi Favour
+- GitHub: [Fombi-Favour](https://github.com/Fombi-Favour)
+- LinkedIn: [Fombi Favour](https://www.linkedin.com/in/fombi-favour/)
 
 👤 Yesuf Fenta
+- GitHub: [@yusufyusie](https://github.com/yusufyusie)
+- LinkedIn: [in/yusufyusie](https://www.linkedin.com/in/yusufyusie)
+- Twitter: [@yusufyusiee](https://twitter.com/yusufyusiee)
 
--GitHub: @yusufyusie
--LinkedIn: in/yusufyusie
--Twitter: @yusufyusiee
 
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
