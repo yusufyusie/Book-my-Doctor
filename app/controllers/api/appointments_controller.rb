@@ -12,12 +12,12 @@ class Api::AppointmentsController < ApplicationController
             image_url: appointment.doctor.image_url,
             name: appointment.doctor.name,
             specialization: appointment.doctor.specialization,
-            cost: appointment.doctor.cost,
+            cost: appointment.doctor.cost
           },
           user: {
-          name:appointment.user.name,
-          date_of_appointment: appointment.date_of_appointment
-        },
+            name: appointment.user.name,
+            date_of_appointment: appointment.date_of_appointment
+          }
 
         }
       end
@@ -25,21 +25,20 @@ class Api::AppointmentsController < ApplicationController
     end
   end
 
-  def show
-  end
-
+  def show; end
 
   def create
     appointment = current_user.appointments.build(appointment_params)
 
     if appointment.save
-      response = {
+      {
         doctor_id: appointment.doctor_id,
         date_of_appointment: appointment.date_of_appointment.strftime('%A, %d %B %Y')
       }
       render json: { data: appointment, message: 'Appointment created' }, status: :created
     else
-      render json: { error: 'Validation failed', errors: appointment.errors.full_messages }, status: :unprocessable_entity
+      render json: { error: 'Validation failed', errors: appointment.errors.full_messages },
+             status: :unprocessable_entity
     end
   end
 
@@ -57,6 +56,7 @@ class Api::AppointmentsController < ApplicationController
   end
 
   private
+
   def appointment_params
     params.require(:appointment).permit(:user_id, :doctor_id, :date_of_appointment)
   end
