@@ -73,4 +73,35 @@
     - `user` (object): Information about the user associated with the appointment.
       - `name` (string): The name of the user.
       - `date_of_appointment` (string): The date of the appointment.
- 
+  - Example Response:
+    ```json
+    {
+      "data": [
+        {
+          "doctor": {
+            "image_url": "https://example.com/doctor1.jpg",
+            "name": "Dr. John Doe",
+            "specialization": "General Physician",
+            "cost": 100.0
+          },
+          "user": {
+            "name": "John Smith",
+            "date_of_appointment": "Tuesday, 15 March 2022"
+          }
+        },
+        {
+          "doctor": {
+            "image_url": "https://example.com/doctor2.jpg",
+            "name": "Dr. Jane Smith",
+            "specialization": "Dermatologist",
+            "cost": 120.0
+          },
+          "user": {
+            "name": "Alice Johnson",
+            "date_of_appointment": "Friday, 18 March 2022"
+          }
+        }
+      ],
+      "message": "Appointments loaded successfully"
+    }
+    ```
