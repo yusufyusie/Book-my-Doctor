@@ -47,19 +47,6 @@ Book my doctor’s backend is a robust Rails application utilizing PostgreSQL da
     <li><a href="https://www.ruby-lang.org/en/">Ruby</a></li>
   </ul>
 
-  <ul>
-    <li><a href="https://www.mysql.com/">RSpec-Rails</a></li>
-  </ul>
-
-  <ul>
-    <li><a href="https://teamcapybara.github.io/capybara/">Capybara-Rails</a></li>
-  </ul>
-
-  <ul>
-    <li><a href="https://github.com/ged/ruby-pg">Ruby Pg</a></li>
-  </ul>
-
-
 <!-- Features -->
 
 ### Key Features <a name="key-features"></a>
@@ -134,8 +121,6 @@ Or create the .env file manually at the root of the application.
 To run the project, you will need to execute:
 
 ```sh
-  rails credentials:edit
-
   rails db:create
 
   rails db:migrate
@@ -144,16 +129,6 @@ To run the project, you will need to execute:
 
   rails s
 ```
-
-### Run tests
-
-To run tests, run the following command:
-
-```sh
-  rails db:migrate RAILS_ENV=test
-  rspec spec/model/
-```
-
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
