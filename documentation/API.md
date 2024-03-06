@@ -55,3 +55,22 @@
       - `cost` (decimal): The cost of the doctor's services.
       - `image_url` (string): The URL of the doctor's image.
 
+## Appointments Resource
+### Retrieve All User Appointments
+- **Endpoint**: `GET /api/appointments`
+- **Description**: Retrieves information about all appointments associated with the authenticated user.
+- **Authentication Required**: Yes
+- **Response**:
+  - Status Code:
+    - `200 OK` if appointments are found.
+    - `404 Not Found` if no appointments are found.
+  - Body: JSON object containing an array of appointment objects with the following fields:
+    - `doctor` (object): Information about the doctor associated with the appointment.
+      - `image_url` (string): The URL of the doctor's image.
+      - `name` (string): The name of the doctor.
+      - `specialization` (string): The specialization of the doctor.
+      - `cost` (decimal): The cost of the doctor's services.
+    - `user` (object): Information about the user associated with the appointment.
+      - `name` (string): The name of the user.
+      - `date_of_appointment` (string): The date of the appointment.
+ 
