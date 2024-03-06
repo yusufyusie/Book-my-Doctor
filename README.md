@@ -125,8 +125,6 @@ To run the project, you will need to execute:
 
   rails db:migrate
 
-  rails db:seed
-
   rails s
 ```
 
