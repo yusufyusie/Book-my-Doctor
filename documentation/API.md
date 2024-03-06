@@ -151,3 +151,13 @@
   - Status Code:
     - `200 OK` if the appointment is successfully deleted.
     - `404 Not Found` if the appointment is not found.
+
+    ### Delete a Doctor
+- **Endpoint**: `DELETE /api/doctors/:id`
+- **Description**: Deletes a specific doctor.
+- **Parameters**:
+  - `id` (integer): The unique identifier of the doctor to be deleted.
+- **Response**:
+  - Status Code:
+    - `200 OK` if the doctor is successfully deleted.
+    - `404 Not Found` if the doctor is not found.
